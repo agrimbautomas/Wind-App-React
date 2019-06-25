@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="16px" height="19px" viewBox="0 0 16 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>file_download - material</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M2.35825106,17.0260931 L17.2817489,17.0260931 L17.2817489,19.18 L2.35825106,19.18 L2.35825106,17.0260931 Z M17.2817489,7.41043724 L9.82,14.8721862 L2.35825106,7.41043724 L6.61478138,7.41043724 L6.61478138,1 L13.0252186,1 L13.0252186,7.41043724 L17.2817489,7.41043724 Z" id="path-1"></path>
+    </defs>
+    <g id="🔴-Colores-&amp;-Icons-&amp;-Buttons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icons/download" transform="translate(-2.000000, -1.000000)">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="file_download---material" fill="#586A81" xlink:href="#path-1"></use>
+        </g>
+    </g>
+</svg>

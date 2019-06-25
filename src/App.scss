@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
+
+// Variables
+
+/* Font Variations */
+$primary-font:'Open Sans', sans-serif;
+$regular:400;
+$light:300;
+$bold:700;
+$semibold:600;
+$text-color:#212529;
+
+/* Colors */
+$white:#fff;
+$black:#212529;
+$danger-color:#fa7069;
+$grey:#d8d8d8;
+$darker-grey:#999;
+$grey-hover:rgba(216, 216, 216, .8);
+$grey-border-focus: rgba(255, 255, 255, .2);
+$primary-color:#3f9cff;
+$dark-blue:#586a81;
+$light-blue:#f6f9ff;
+$grid-background:#eee;
+$success-green: #02d070;
+$button-transparency:rgba(63, 156, 255, .1);
+$highlight-color:rgb(193, 221, 250);
+$nav-color:#212529;
+$placeholder-color:#9b9b9b;
+$new-notification:#e6fbf2;
+$input-background:#fbfbfb;
+
+//Baserules
+h1, h2, h3, h4, h5, button, span, em, p, a, label, input {
+	font-family: $primary-font;
+	color: $text-color;
+}
+
+h1 {
+	font-size: 20px;
+	font-weight: $bold;
+}
+
+h2 {
+	font-size: 16px;
+	font-weight: $semibold;
+}
+
+.white {
+	color: rgba(255, 255, 255, .9);
+}
+
+p {
+	font-size: 12px;
+}
+
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+span {
+	font-weight: $semibold;
+}
+
+.smalltext {
+	font-size: 8px;
+}
+
+textarea {
+	background: transparent;
+	border-radius: 2px;
+	border: 1px solid $grey;
+	resize: none;
+	line-height: 18px;
+	padding: 10px;
+}
+
+label {
+	font-size: 16px;
+	font-weight: $semibold;
+	color: $black;
+}
+
+::-webkit-input-placeholder {
+	color: $placeholder-color;
+	font-size: 13px;
+	font-weight: $light;
+}
+
+input {
+	font-size: 12px;
+	color: $black;
+}
+
+input:focus {
+	outline: unset;
+	border: 1px solid $primary-color;
+	box-shadow: 0 0 4px 0 rgba(63, 156, 255, .2);
+}
+
+// buttons
+button {
+	border: 0;
+	background: transparent;
+	padding: 0;
+	cursor: pointer;
+
+	&:focus {
+		outline: none;
+	}
+}
+
+/*** with icons ***/
+.material-icons.md-dark {
+	color: $dark-blue;
+	cursor: pointer;
+}
+
+.grey {
+	.material-icons.md-dark {
+		color: $grey !important;
+	}
+}
+
+.download-icon {
+	background-color: $dark-blue !important;
+	-webkit-mask: url('../../assets/img/icons/download-icon.svg') no-repeat 50% 50%;
+	mask: url('../../assets/img/icons/download-icon.svg') no-repeat 50% 50%;
+	height: 20px;
+	width: 20px;
+}
+
+.pointer-icon {
+	background-color: $dark-blue;
+	-webkit-mask: url('../../assets/img/icons/pointer-icon.svg') no-repeat 50% 50%;
+	mask: url('../../assets/img/icons/pointer-icon.svg') no-repeat 50% 50%;
+	height: 20px;
+	width: 20px;
+}
+
+.flip-icon-x {
+	transform: scaleX(-1);
+}
+
+/*** end icons ***/
+
+.btn {
+	font-weight: $semibold;
+	font-size: 13px;
+	border-radius: 5px;
+	padding: 8px 28px;
+	transition: ease all .7s;
+	text-align: center;
+	box-sizing: border-box;
+}
+
+// React deafult Styles
+$header-background-color: #222;
+
+.ellipsis {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	margin-bottom: 4px;
+	margin-top: 10px;
+	padding-bottom: 3px;
+	width: 93%;
+	margin-left: 5px;
+}
+
+.reverse-ellipsis {
+	text-overflow: clip;
+	position: relative;
+	background-color: $grid-background;
+	overflow: hidden;
+}
+
+.reverse-ellipsis::before {
+	content: '\02026';
+	position: absolute;
+	z-index: 1;
+	left: 0;
+	background-color: inherit;
+	padding-left: 2px;
+	margin-left: 0;
+}
+
+.reverse-ellipsis span {
+	min-width: 100%;
+	position: relative;
+	float: right;
+	overflow: visible;
+	background-color: inherit;
+	text-indent: .5em;
+}
+
+.reverse-ellipsis span::before {
+	content: '';
+	position: absolute;
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	background-color: inherit;
+	z-index: 200;
+	left: -.5em;
+}
+
+.Grid {
+	background: $grid-background;
+}
+
+body, html {
+	background-color: $grid-background;
+	width: 100%;
+	overflow-x: hidden;
+	box-sizing: inherit;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+.small-profile-pic {
+	width: 28px;
+	height: 28px;
+
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		border-radius: 50%;
+	}
+}
+
+.InfoMessageBox {
+	left: 40px;
+}

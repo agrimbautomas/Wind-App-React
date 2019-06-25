@@ -1,0 +1,46 @@
+{
+  "name": "order-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "actions": "^1.3.0",
+    "classnames": "^2.2.6",
+    "connected-react-router": "^6.4.0",
+    "node-sass": "^4.11.0",
+    "normalizr": "^3.3.0",
+    "pusher-js": "^4.4.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-pusher": "^0.2.0",
+    "react-redux": "^7.0.2",
+    "react-router-dom": "^5.0.0",
+    "react-router-modal": "^1.5.2",
+    "react-scripts": "2.1.8",
+    "redux": "^4.0.1",
+    "redux-auth-wrapper": "^2.1.0",
+    "redux-pack": "^0.1.5",
+    "redux-persist": "^5.10.0",
+    "redux-persist-transform-immutable": "^5.0.0",
+    "redux-thunk": "^2.3.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "node scripts/testRun.js --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "@babel/preset-env": "^7.4.3",
+    "@babel/preset-react": "^7.0.0",
+    "react-test-renderer": "^16.8.6"
+  }
+}

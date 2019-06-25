@@ -1,0 +1,31 @@
+@import '../../App.scss';
+
+.input-container {
+	width: 100%;
+
+	label {
+		display: block;
+		margin-bottom: 5px;
+	}
+
+	input {
+		width: 100%;
+		padding: 13px 15px;
+		border-radius: 4px;
+		box-shadow: unset;
+		border: 1px solid $grey;
+		box-sizing: border-box;
+		background: $input-background;
+
+		&.error {
+			border: 1px solid $danger-color;
+			box-shadow: 0 0 4px 0 rgba(250, 112, 105, .2);
+		}
+
+		&.disabled {
+			border: 0;
+			color: $grey;
+			pointer-events: none;
+		}
+	}
+}

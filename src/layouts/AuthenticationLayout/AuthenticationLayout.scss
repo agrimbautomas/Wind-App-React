@@ -1,0 +1,29 @@
+@import '../../App.scss';
+
+.AuthenticationLayout {
+	width: 100%;
+	background: $white;
+	display: flex;
+
+	.left-side {
+		background-image: url('../../assets/img/login-background.jpg');
+		height: 768px;
+		width: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
+
+	.right-side {
+		width: 50%;
+		display: flex;
+		justify-content: center;
+		padding-top: 150px;
+
+		.components-container {
+			width: 416px;
+		}
+	}
+}

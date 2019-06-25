@@ -1,0 +1,96 @@
+@import '../../App.scss';
+
+.Button {
+	font-weight: $semibold;
+	font-size: 13px;
+	border-radius: 5px;
+	padding: 8px 28px;
+	display: flex;
+	align-items: center;
+	transition: ease all .7s;
+	text-align: center;
+	justify-content: center;
+
+	&:active {
+		opacity: .85;
+	}
+
+	&:hover {
+		transition: ease all .7s;
+		transition-timing-function: cubic-bezier(.23, 1, .32, 1);
+	}
+
+	&:focus {
+		transition: ease all .7s;
+		transition-timing-function: cubic-bezier(.23, 1, .32, 1);
+	}
+
+	&:disabled {
+		opacity: .7;
+	}
+
+	&.primary {
+		background-color: $grey;
+		color: $white;
+	}
+
+	&.blue {
+		background-color: $primary-color;
+		color: $white;
+	}
+
+	&.bordered {
+		border-color: $primary-color;
+		border-width: 1px;
+		border-style: solid;
+	}
+
+	&.text {
+		font-weight: $regular;
+		background-color: transparent;
+		border-width: 0;
+		color: $primary-color;
+	}
+
+	&.round {
+		background-color: $primary-color;
+		border-radius: 50%;
+		font-weight: $light;
+		color: $white;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 24px;
+		height: 24px;
+		padding: 0;
+
+		&.small {
+			padding: 0;
+			border-radius: 50%;
+		}
+
+		&.x-small {
+			width: 18px;
+			height: 18px;
+			padding: 0;
+			border-radius: 50%;
+		}
+	}
+
+	&.round-green {
+		@extend .round;
+
+		background-color: #02d070;
+	}
+
+	&.small {
+		padding: 3px 14px;
+		font-size: 10px;
+		border-radius: 2px;
+	}
+
+	.material-icons {
+		color: inherit !important;
+		font-size: inherit !important;
+	}
+}
