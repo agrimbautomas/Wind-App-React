@@ -1,18 +1,18 @@
 import React from "react";
-import OrderItem from '../orderItem/OrderItem';
+import WindLog from '../windLog/WindLog';
 import SocketsService from "../../services/socketsService"
-import './OrdersList.scss';
+import './WindLogsList.scss';
 
-const ENDPOINT = "https://qr-admin.amalgama.co/1";
+const ENDPOINT = "http://wind-api.amalgama.co/1";
 // const ENDPOINT = "http://localhost:3000/1";
 
 
-class OrdersList extends React.Component {
+class WindLogsList extends React.Component {
 
     constructor(props) {
         super(props);
 
-        this.get_orders_url = ENDPOINT + "/orders/not_delivered";
+        this.get_orders_url = ENDPOINT + "/stats";
         SocketsService.listenForNewOrders(this);
 
         this.state = {
@@ -41,13 +41,11 @@ class OrdersList extends React.Component {
             )
     }
 
-    markAsDeliveredUrl = (orderId) => {
-        return ENDPOINT + "/orders/" + orderId + "/mark_as_delivered"
-    }
 
-    getOrderItem = (order) => {
+
+    getWindLog = (order) => {
         return (
-            <OrderItem
+            <WindLog
                 key={order.id}
                 id={order.id}
                 buyer={order.buyer}
@@ -55,25 +53,10 @@ class OrdersList extends React.Component {
                 product={order.product}
                 created_time={order.created_time}
                 image={order.image}
-                onClick={() => this.markAsDelivered(order)}
                 className={'A-donde-va'}
             />
         );
     }
-
-    markAsDelivered = (order) => {
-        fetch(this.markAsDeliveredUrl(order.id), {method: 'PATCH'})
-            .then(res => res.json())
-            .then(
-                (result) => {
-                    console.log('markAsDelivered', result)
-                },
-                (error) => {
-                    this.setState({error});
-                }
-            )
-    }
-
 
     socketsCallback = (data) => {
         let order = JSON.parse(data.order)
@@ -85,27 +68,6 @@ class OrdersList extends React.Component {
             this.removeOrder(order);
         else
             this.addNewOrder(order);
-    }
-
-    addNewOrder = (order) => {
-        let orderPosition = this.getOrderPosition(order);
-        console.log('addNewOrder', orderPosition);
-
-        this.state.orders.push(order);
-        this.updateOrdersState();
-    }
-
-    removeOrder = (order) => {
-        let orderPosition = this.getOrderPosition(order);
-        console.log('removeOrder', orderPosition);
-        this.state.orders.splice(orderPosition, 1);
-        this.updateOrdersState();
-    }
-
-    updateOrdersState = () => {
-        this.setState({
-            orders: this.state.orders
-        });
     }
 
     getOrderPosition = (order) => {
@@ -137,7 +99,7 @@ class OrdersList extends React.Component {
     displayOrders = () => {
         return (
             <div className="orders-container">
-                {this.state.orders.map(order => this.getOrderItem(order))}
+                {this.state.orders.map(order => this.getWindLog(order))}
             </div>
         )
     }
@@ -152,4 +114,4 @@ class OrdersList extends React.Component {
 
 }
 
-export default OrdersList;
+export default WindLogsList;

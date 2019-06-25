@@ -1,7 +1,7 @@
 import React, {Component} from "react";
-import './OrderItem.scss';
+import './WindLog.scss';
 
-class OrderItem extends Component {
+class WindLog extends Component {
     render() {
         return (
             <div
@@ -21,4 +21,4 @@ class OrderItem extends Component {
     }
 }
 
-export default OrderItem;
+export default WindLog;
