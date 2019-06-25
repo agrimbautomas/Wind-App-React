@@ -2,12 +2,12 @@ import Pusher from 'pusher-js';
 
 class SocketsService {
 
-    static PUSHER_KEY = '8c9b3251c11f13243367';
+    static PUSHER_KEY = '6f7516e788fca20efda3';
     static PUSHER_CLUSTER = 'mt1';
     static CHANNEL_NAME = 'orders-channel';
     static TOPIC_NAME = 'order-status-changed';
 
-    static listenForNewOrders = (listener) => {
+    static listenForNewWindLogs = (listener) => {
 
         Pusher.logToConsole = true;
         Pusher.log = (msg) => {

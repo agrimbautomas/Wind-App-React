@@ -4,6 +4,7 @@ import SocketsService from "../../services/socketsService"
 import './WindLogsList.scss';
 
 const ENDPOINT = "http://wind-api.amalgama.co/1";
+
 // const ENDPOINT = "http://localhost:3000/1";
 
 
@@ -12,24 +13,24 @@ class WindLogsList extends React.Component {
     constructor(props) {
         super(props);
 
-        this.get_orders_url = ENDPOINT + "/stats";
-        SocketsService.listenForNewOrders(this);
+        this.get_windLogs_url = ENDPOINT + "/stats";
+        SocketsService.listenForNewWindLogs(this);
 
         this.state = {
             error: null,
             isLoaded: false,
-            orders: []
+            windLogs: []
         };
     }
 
     componentDidMount = () => {
-        fetch(this.get_orders_url)
+        fetch(this.get_windLogs_url)
             .then(res => res.json())
             .then(
                 (result) => {
                     this.setState({
                         isLoaded: true,
-                        orders: result.response
+                        windLogs: result.response
                     });
                 },
                 (error) => {
@@ -42,37 +43,34 @@ class WindLogsList extends React.Component {
     }
 
 
-
-    getWindLog = (order) => {
+    getWindLog = (windLog) => {
         return (
             <WindLog
-                key={order.id}
-                id={order.id}
-                buyer={order.buyer}
-                payment_id={order.payment_id}
-                product={order.product}
-                created_time={order.created_time}
-                image={order.image}
+                key={windLog.id}
+                id={windLog.id}
+                speed={windLog.speed}
+                gust={windLog.gust}
+                direction={windLog.direction}
                 className={'A-donde-va'}
             />
         );
     }
 
     socketsCallback = (data) => {
-        let order = JSON.parse(data.order)
-        this.updateOrders(order)
+        let windLog = JSON.parse(data.windLog)
+        this.updatewindLogs(windLog)
     }
 
-    updateOrders = (order) => {
-        if (order.delivered)
-            this.removeOrder(order);
+    updatewindLogs = (windLog) => {
+        if (windLog.delivered)
+            this.removewindLog(windLog);
         else
-            this.addNewOrder(order);
+            this.addNewwindLog(windLog);
     }
 
-    getOrderPosition = (order) => {
-        return this.state.orders.findIndex(function (element) {
-            return element.id === order.id;
+    getwindLogPosition = (windLog) => {
+        return this.state.windLogs.findIndex(function (element) {
+            return element.id === windLog.id;
         });
     }
 
@@ -83,30 +81,29 @@ class WindLogsList extends React.Component {
         } else if (!isLoaded) {
             return <div>Loading...</div>;
         } else {
-            return this.renderOrdersView()
+            return this.renderwindLogsView()
         }
     }
 
 
-
-    renderOrdersView = () => {
-        if (this.state.orders.length > 0)
-            return this.displayOrders();
+    renderwindLogsView = () => {
+        if (this.state.windLogs.length > 0)
+            return this.displaywindLogs();
         else
             return this.displayPlaceholder();
     }
 
-    displayOrders = () => {
+    displaywindLogs = () => {
         return (
-            <div className="orders-container">
-                {this.state.orders.map(order => this.getWindLog(order))}
+            <div className="windLogs-container">
+                {this.state.windLogs.map(windLog => this.getWindLog(windLog))}
             </div>
         )
     }
 
     displayPlaceholder = () => {
         return (
-            <div className="orders-placeholder">
+            <div className="windLogs-placeholder">
                 <h1>No hay ordenes pendientes</h1>
             </div>
         )

@@ -6,16 +6,11 @@ class WindLog extends Component {
         return (
             <div
                 className="order-item smooth-transition" onClick={() => this.props.onClick()}>
-                <span className="created-time">{this.props.created_time}</span>
-                <h1>{this.props.buyer}</h1>
-                <h3>{this.props.payment_id}</h3>
-                <img src={this.props.image} alt={this.props.product} />
+                <span className="created-time">{this.props.registered_date}</span>
+                <h1>{this.props.speed}kts</h1>
+                <h3>{this.props.gust}kts</h3>
                 <span className='id-hidden'>{this.props.id}</span>
-                <h2>{this.props.product}</h2>
-                <button>
-                    <span></span>
-                    Entregada
-                </button>
+                <h2>{this.props.direction}°</h2>
             </div>
         );
     }
