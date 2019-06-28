@@ -1,0 +1,46 @@
+
+.latest-stats-item {
+  cursor: pointer;
+  text-align: center;
+  padding: 7rem 4rem;
+
+  > * {
+    width: 100%;
+    text-align: center;
+  }
+
+  .created-time {
+    position: absolute;
+    width: auto;
+    right: 10px;
+    padding: 3px 10px;
+    font-size: 0.85em;
+  }
+
+  .id-hidden {
+    display: none;
+  }
+
+
+
+  button {
+    background: none;
+    font-size: 1.5em;
+    line-height: 2.5em;
+    width: 100%;
+    padding: 0px;
+    outline: none;
+    font-family: 'Oswald', arial, sans-serif;
+    cursor: pointer;
+    font-weight: lighter;
+    text-transform: uppercase;
+
+    span {
+      height: 1px;
+      width: 80%;
+      display: block;
+      margin: 0px 10%;
+    }
+
+  }
+}

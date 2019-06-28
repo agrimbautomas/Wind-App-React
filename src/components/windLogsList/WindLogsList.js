@@ -1,10 +1,9 @@
 import React from "react";
-import WindLog from '../windLog/WindLog';
+import LatestStats from '../latestStats/LatestStats';
 import SocketsService from "../../services/socketsService"
 import './WindLogsList.scss';
 
 const ENDPOINT = "http://wind-api.amalgama.co/1";
-
 //const ENDPOINT = "http://localhost:3000/1";
 
 
@@ -13,7 +12,7 @@ class WindLogsList extends React.Component {
     constructor(props) {
         super(props);
 
-        this.get_windLogs_url = ENDPOINT + "/stats";
+        this.get_stats_url = ENDPOINT + "/stats";
         SocketsService.listenForNewWindLogs(this);
 
         this.state = {
@@ -24,7 +23,7 @@ class WindLogsList extends React.Component {
     }
 
     componentDidMount = () => {
-        fetch(this.get_windLogs_url)
+        fetch(this.get_stats_url)
             .then(res => res.json())
             .then(
                 (results) => {
@@ -43,14 +42,14 @@ class WindLogsList extends React.Component {
     }
 
 
-    getWindLog = (windLog) => {
+    getLatestStatsView = (stats) => {
         return (
-            <WindLog
-                key={windLog.id}
-                id={windLog.id}
-                speed={windLog.speed}
-                gust={windLog.gust}
-                direction={windLog.direction}
+            <LatestStats
+                key={stats.id}
+                id={stats.id}
+                speed={stats.speed}
+                gust={stats.gust}
+                direction={stats.direction}
                 className={'A-donde-va'}
             />
         );
@@ -75,24 +74,22 @@ class WindLogsList extends React.Component {
         } else if (!isLoaded) {
             return <div>Loading...</div>;
         } else {
-            return this.renderWindLogsView()
+            return this.renderLatestStatsView()
         }
     }
 
 
-    renderWindLogsView = () => {
+    renderLatestStatsView = () => {
         if (this.state.stats)
             return this.displayStats();
         else
             return this.displayPlaceholder();
     }
 
-
     displayStats = () => {
-        var windLog = this.state.stats.latest;
         return (
             <div className="stats-container">
-                {this.getWindLog(windLog)}
+                {this.getLatestStatsView(this.state.stats.latest)}
             </div>
         )
     }
@@ -100,7 +97,7 @@ class WindLogsList extends React.Component {
     displayPlaceholder = () => {
         return (
             <div className="stats-placeholder">
-                <h1>No hay ordenes pendientes</h1>
+                <h1>No información disponible</h1>
             </div>
         )
     }
