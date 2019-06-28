@@ -4,8 +4,8 @@ class SocketsService {
 
     static PUSHER_KEY = '6f7516e788fca20efda3';
     static PUSHER_CLUSTER = 'mt1';
-    static CHANNEL_NAME = 'orders-channel';
-    static TOPIC_NAME = 'order-status-changed';
+    static CHANNEL_NAME = 'stats-channel';
+    static TOPIC_NAME = 'stats-changed';
 
     static listenForNewWindLogs = (listener) => {
 

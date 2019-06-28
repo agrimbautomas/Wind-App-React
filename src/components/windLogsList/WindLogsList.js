@@ -5,7 +5,7 @@ import './WindLogsList.scss';
 
 const ENDPOINT = "http://wind-api.amalgama.co/1";
 
-// const ENDPOINT = "http://localhost:3000/1";
+//const ENDPOINT = "http://localhost:3000/1";
 
 
 class WindLogsList extends React.Component {
@@ -19,7 +19,7 @@ class WindLogsList extends React.Component {
         this.state = {
             error: null,
             isLoaded: false,
-            windLogs: []
+            stats: []
         };
     }
 
@@ -27,10 +27,10 @@ class WindLogsList extends React.Component {
         fetch(this.get_windLogs_url)
             .then(res => res.json())
             .then(
-                (result) => {
+                (results) => {
                     this.setState({
                         isLoaded: true,
-                        windLogs: result.response
+                        stats: results
                     });
                 },
                 (error) => {
@@ -57,22 +57,16 @@ class WindLogsList extends React.Component {
     }
 
     socketsCallback = (data) => {
-        let windLog = JSON.parse(data.windLog)
-        this.updatewindLogs(windLog)
+        console.log(data);
+        this.updateStats(data.stats);
     }
 
-    updatewindLogs = (windLog) => {
-        if (windLog.delivered)
-            this.removewindLog(windLog);
-        else
-            this.addNewwindLog(windLog);
-    }
-
-    getwindLogPosition = (windLog) => {
-        return this.state.windLogs.findIndex(function (element) {
-            return element.id === windLog.id;
+    updateStats = (stats) => {
+        this.setState({
+            stats: stats
         });
     }
+
 
     render() {
         const {error, isLoaded} = this.state;
@@ -81,29 +75,31 @@ class WindLogsList extends React.Component {
         } else if (!isLoaded) {
             return <div>Loading...</div>;
         } else {
-            return this.renderwindLogsView()
+            return this.renderWindLogsView()
         }
     }
 
 
-    renderwindLogsView = () => {
-        if (this.state.windLogs.length > 0)
-            return this.displaywindLogs();
+    renderWindLogsView = () => {
+        if (this.state.stats)
+            return this.displayStats();
         else
             return this.displayPlaceholder();
     }
 
-    displaywindLogs = () => {
+
+    displayStats = () => {
+        var windLog = this.state.stats.latest;
         return (
-            <div className="windLogs-container">
-                {this.state.windLogs.map(windLog => this.getWindLog(windLog))}
+            <div className="stats-container">
+                {this.getWindLog(windLog)}
             </div>
         )
     }
 
     displayPlaceholder = () => {
         return (
-            <div className="windLogs-placeholder">
+            <div className="stats-placeholder">
                 <h1>No hay ordenes pendientes</h1>
             </div>
         )

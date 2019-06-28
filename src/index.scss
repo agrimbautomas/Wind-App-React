@@ -1,9 +1,29 @@
-$darkBlue: #080c17;
-$lightGreen: #67e08b;
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
+
+// Variables
 
 $fast_transition: all 0.2s ease-in-out;
 $smooth_transition: all 0.3s ease-in-out;
 $slow_transition: all .4s ease-in-out;
+
+/* Font Variations */
+$primary-font: 'Open Sans', sans-serif;
+$regular: 400;
+$light: 300;
+$bold: 700;
+$semibold: 600;
+$text-color: #212529;
+
+/* Colors */
+$black: #212529;
+
+$light-blue: #d5edff;
+$light-blue2: #a5d4fe;
+$blue: #6daaee;
+$strong-blue: #3858f9;
+$strongest-blue: #183c99;
+
+
 
 html, body {
   text-align: center;
@@ -46,30 +66,176 @@ a {
 body {
   text-align: center;
   position: relative;
-  color: $darkBlue;
+  color: $light-blue;
   font-family: Helvetica, Arial, sans-serif;
 }
 
-h1,
-h2,
-h3 {
-  color: $darkBlue;
-  text-align: center;
-  font-weight: bold;
+//Baserules
+h1, h2, h3, h4, h5, button, span, em, p, a, label, input {
+  font-family: $primary-font;
+  color: $text-color;
 }
 
-h3 {
+h1 {
+  font-size: 20px;
+  font-weight: $bold;
+}
 
-  font-size: 3em;
-  font-weight: normal;
+h2 {
+  font-size: 16px;
+  font-weight: $semibold;
+}
 
-  span {
+.white {
+  color: rgba(255, 255, 255, .9);
+}
 
-    font-size: 3em;
-    text-decoration: underline;
+p {
+  font-size: 12px;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+span {
+  font-weight: $semibold;
+}
+
+.smalltext {
+  font-size: 8px;
+}
+
+textarea {
+  background: transparent;
+  border-radius: 2px;
+  border: 1px solid black;
+  resize: none;
+  line-height: 18px;
+  padding: 10px;
+}
+
+label {
+  font-size: 16px;
+  font-weight: $semibold;
+  color: $black;
+}
+
+::-webkit-input-placeholder {
+  color: $blue;
+  font-size: 13px;
+  font-weight: $light;
+}
+
+input {
+  font-size: 12px;
+  color: $black;
+}
+
+input:focus {
+  outline: unset;
+  border: 1px solid $blue;
+  box-shadow: 0 0 4px 0 rgba(63, 156, 255, .2);
+}
+
+// buttons
+button {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
   }
-
 }
+
+
+.flip-icon-x {
+  transform: scaleX(-1);
+}
+
+/*** end icons ***/
+
+.btn {
+  font-weight: $semibold;
+  font-size: 13px;
+  border-radius: 5px;
+  padding: 8px 28px;
+  transition: ease all .7s;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+// React deafult Styles
+$header-background-color: #222;
+
+.ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-bottom: 4px;
+  margin-top: 10px;
+  padding-bottom: 3px;
+  width: 93%;
+  margin-left: 5px;
+}
+
+.reverse-ellipsis {
+  text-overflow: clip;
+  position: relative;
+  background-color: $blue ;
+  overflow: hidden;
+}
+
+.reverse-ellipsis::before {
+  content: '\02026';
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  background-color: inherit;
+  padding-left: 2px;
+  margin-left: 0;
+}
+
+.reverse-ellipsis span {
+  min-width: 100%;
+  position: relative;
+  float: right;
+  overflow: visible;
+  background-color: inherit;
+  text-indent: .5em;
+}
+
+.reverse-ellipsis span::before {
+  content: '';
+  position: absolute;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-color: inherit;
+  z-index: 200;
+  left: -.5em;
+}
+
+
+body, html {
+  background-color: $light-blue;
+  width: 100%;
+  overflow-x: hidden;
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+
 
 
 .smooth-transition {
@@ -91,36 +257,4 @@ h3 {
   -moz-transition: $fast_transition;
   -o-transition: $fast_transition;
   transition: $fast_transition;
-}
-
-section#root{
-  text-align: center;
-  width: 100%;
-  margin-top: 55px;
-
-  .grid {
-    padding: 30px 0px;
-    background: #eaebf0;
-  }
-
-}
-
-.grid {
-  max-width: 1000px;
-  width: 100%;
-  display: inline-block;
-}
-
-header {
-  width: 100%;
-  position: fixed;
-  top: 0px;
-  background: white;
-  box-shadow: 0px 2px 2px #00000033;
-  padding: 6px 0px;
-  z-index: 999;
-
-  img{
-    width: 40px;
-  }
 }
