@@ -4,7 +4,7 @@ import SocketsService from "../../services/socketsService"
 import './MainStatsContainer.scss';
 import spinner from '../..//assets/img/spinner.gif';
 
-const ENDPOINT = "http://api.vientoenelrio.com/1";
+const ENDPOINT = "https://api.vientoenelrio.com/1";
 
 //const ENDPOINT = "http://localhost:3000/1";
 
