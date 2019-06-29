@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
+@import "fonts";
+
 
 // Variables
 
@@ -7,7 +8,7 @@ $smooth_transition: all 0.3s ease-in-out;
 $slow_transition: all .4s ease-in-out;
 
 /* Font Variations */
-$primary-font: 'Open Sans', sans-serif;
+$primary-font: 'Product Sans', Helvetica, Arial, sans-serif;
 $regular: 400;
 $light: 300;
 $bold: 700;
@@ -60,7 +61,7 @@ body {
   text-align: center;
   position: relative;
   background: $white;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: $primary-font;
 }
 
 
@@ -68,12 +69,12 @@ body {
 h1, h2, h3, h4, h5, button, span, em, p, a, label, input {
   font-family: $primary-font;
   color: $strongest-blue;
+  margin: 2rem auto;
 }
 
 h1 {
-  font-size: 2.3em;
+  font-size: 2.5em;
   font-weight: bolder;
-  margin: 50px auto 20px;
 }
 
 img {
@@ -81,13 +82,12 @@ img {
 }
 
 h2 {
-  font-size: 1.2em;
+  font-size: 1.5em;
   font-weight: bolder;
-  margin: 0.5rem auto;
 }
 
 h3 {
-  font-size: 1.8em;
+  font-size: 2em;
   font-weight: bolder;
   margin: 0px auto 16px;
 }
