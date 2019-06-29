@@ -5,7 +5,7 @@ class Header extends Component {
 
     render() {
         return (
-            <img alt="Logo HoySeNavega" />
+            <img alt="Logo VientoEnElRio" />
         )
     }
 }
