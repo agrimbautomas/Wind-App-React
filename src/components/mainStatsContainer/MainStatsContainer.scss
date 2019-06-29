@@ -1,0 +1,19 @@
+.spinner-container{
+  width: 100%;
+  display: grid;
+  align-items: center;
+  height: 100vh;
+
+  img{
+    max-width: 8rem;
+    width: 50%;
+    margin: auto;
+  }
+}
+
+.stats-container {
+  width: 100%;
+  display: grid;
+  align-items: center;
+  height: 100vh;
+}

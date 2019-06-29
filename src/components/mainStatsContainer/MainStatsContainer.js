@@ -1,13 +1,15 @@
 import React from "react";
 import LatestStats from '../latestStats/LatestStats';
 import SocketsService from "../../services/socketsService"
-import './WindLogsList.scss';
+import './MainStatsContainer.scss';
+import spinner from '../..//assets/img/spinner.gif';
 
 const ENDPOINT = "http://wind-api.amalgama.co/1";
+
 //const ENDPOINT = "http://localhost:3000/1";
 
 
-class WindLogsList extends React.Component {
+class MainStatsContainer extends React.Component {
 
     constructor(props) {
         super(props);
@@ -72,7 +74,7 @@ class WindLogsList extends React.Component {
         if (error) {
             return <div>Error: {error.message}</div>;
         } else if (!isLoaded) {
-            return <div>Loading...</div>;
+            return <div className="spinner-container"><img src={spinner}/></div>;
         } else {
             return this.renderLatestStatsView()
         }
@@ -104,4 +106,4 @@ class WindLogsList extends React.Component {
 
 }
 
-export default WindLogsList;
+export default MainStatsContainer;

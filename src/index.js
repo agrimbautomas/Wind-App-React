@@ -2,15 +2,14 @@ import React from 'react'
 import ReactDOM from 'react-dom';
 import './index.scss';
 
-import WindLogsList from './components/windLogsList/WindLogsList';
-// import Header from './components/header/Header';
+import MainStatsContainer from './components/mainStatsContainer/MainStatsContainer';
 
 
 class MainGrid extends React.Component {
     render() {
         return (
             <div className="grid">
-                <WindLogsList/>
+                <MainStatsContainer/>
             </div>
         )
     }
