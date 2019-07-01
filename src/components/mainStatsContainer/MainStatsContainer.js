@@ -1,7 +1,11 @@
 import React from "react";
-import LatestStats from '../latestStats/LatestStats';
 import SocketsService from "../../services/socketsService"
+
 import './MainStatsContainer.scss';
+
+import LatestStats from '../latestStats/LatestStats';
+import MapView from '../mapView/MapView';
+
 import spinner from '../..//assets/img/spinner.gif';
 
 const ENDPOINT = "https://api.vientoenelrio.com/1";
@@ -90,9 +94,11 @@ class MainStatsContainer extends React.Component {
 
     displayStats = () => {
         return (
-            <div className="stats-container">
+            <div className="main-container">
                 {this.getLatestStatsView(this.state.stats.latest)}
+                <div className='map-container'><MapView/></div>
             </div>
+
         )
     }
 

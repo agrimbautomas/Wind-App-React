@@ -65,25 +65,28 @@ class LatestStats extends Component {
 
     render() {
         return (
-            <div
-                className="latest-stats-item" onClick={this.fadeImage}>
 
-                <h2>
-                    {this.getDirection(this.state.direction)}
-                    <span>({this.state.direction}°)</span>
-                </h2>
+            <div className="stats-container">
+                <div
+                    className="latest-stats-item" onClick={this.fadeImage}>
 
-                <h1>
-                    <span>Viento</span>
-                    {this.state.speed} {this.state.messure}
-                </h1>
+                    <h2>
+                        {this.getDirection(this.state.direction)}
+                        <span>({this.state.direction}°)</span>
+                    </h2>
 
-                <h3>
-                    <span>Ráfaga</span>
-                    {this.state.gust} {this.state.messure}
-                </h3>
-                <span className='id-hidden'>{this.props.id}</span>
+                    <h1>
+                        <span>Viento</span>
+                        {this.state.speed} {this.state.messure}
+                    </h1>
 
+                    <h3>
+                        <span>Ráfaga</span>
+                        {this.state.gust} {this.state.messure}
+                    </h3>
+                    <span className='id-hidden'>{this.props.id}</span>
+
+                </div>
             </div>
         );
     }
