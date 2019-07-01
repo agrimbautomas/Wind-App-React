@@ -2,14 +2,32 @@
   "name": "Viento en el Rio",
   "short_name": "Viento",
   "lang": "es",
+  "scope": "/",
   "start_url": "/",
   "display": "standalone",
+  "orientation": "portrait",
   "theme_color": "#183c99",
+  "background_color": "#000000",
   "icons": [
     {
       "src": "icons/apple-icon.png",
       "sizes": "192x192",
       "type": "image/png"
+    },
+    {
+      "src": "icons/apple-icon-120x120.png",
+      "type": "image/png",
+      "sizes": "128x128"
+    },
+    {
+      "src": "icons/apple-icon-152x152.png",
+      "type": "image/png",
+      "sizes": "152x152"
+    },
+    {
+      "src": "icons/ms-icon-144x144.png",
+      "type": "image/png",
+      "sizes": "144x144"
     }
   ]
 }
