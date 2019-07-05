@@ -3,7 +3,7 @@
     "elementType": "geometry",
     "stylers": [
       {
-        "color": "#f5f5f5"
+        "color": "#479c94"
       }
     ]
   },
@@ -43,6 +43,9 @@
     "featureType": "administrative.land_parcel",
     "stylers": [
       {
+        "color": "#ffec87"
+      },
+      {
         "visibility": "off"
       }
     ]
@@ -52,7 +55,7 @@
     "elementType": "labels.text.fill",
     "stylers": [
       {
-        "color": "#bdbdbd"
+        "color": "#63bcac"
       }
     ]
   },
@@ -69,7 +72,7 @@
     "elementType": "geometry",
     "stylers": [
       {
-        "color": "#eeeeee"
+        "color": "#32726a"
       }
     ]
   },
@@ -78,7 +81,7 @@
     "elementType": "labels.text.fill",
     "stylers": [
       {
-        "color": "#757575"
+        "color": "#fe2d2d"
       }
     ]
   },
@@ -87,7 +90,7 @@
     "elementType": "geometry",
     "stylers": [
       {
-        "color": "#e5e5e5"
+        "color": "#32726a"
       }
     ]
   },
@@ -105,7 +108,7 @@
     "elementType": "geometry",
     "stylers": [
       {
-        "color": "#ffffff"
+        "color": "#32736a"
       }
     ]
   },
@@ -114,7 +117,7 @@
     "elementType": "labels.text.fill",
     "stylers": [
       {
-        "color": "#757575"
+        "color": "#ff1313"
       }
     ]
   },
@@ -123,7 +126,7 @@
     "elementType": "geometry",
     "stylers": [
       {
-        "color": "#dadada"
+        "color": "#32726a"
       }
     ]
   },
@@ -141,7 +144,7 @@
     "elementType": "labels.text.fill",
     "stylers": [
       {
-        "color": "#9e9e9e"
+        "color": "#ff0000"
       }
     ]
   },
@@ -150,7 +153,7 @@
     "elementType": "geometry",
     "stylers": [
       {
-        "color": "#e5e5e5"
+        "color": "#32736a"
       }
     ]
   },
@@ -159,7 +162,7 @@
     "elementType": "geometry",
     "stylers": [
       {
-        "color": "#eeeeee"
+        "color": "#32736a"
       }
     ]
   },
@@ -185,6 +188,9 @@
     "elementType": "geometry.fill",
     "stylers": [
       {
+        "color": "#63bcac"
+      },
+      {
         "visibility": "simplified"
       }
     ]
@@ -194,7 +200,7 @@
     "elementType": "labels.text.fill",
     "stylers": [
       {
-        "color": "#9e9e9e"
+        "visibility": "off"
       }
     ]
   }
