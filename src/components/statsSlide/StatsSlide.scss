@@ -1,0 +1,108 @@
+$toSailColor: #75fc4c;
+$noSailColor: #bd1f4b;
+
+.latest-stats-item {
+  cursor: pointer;
+  text-align: center;
+  padding: 0rem 0px;
+  width: 90%;
+  margin: auto;
+
+  span {
+    display: block;
+    text-align: center;
+    font-size: 0.7em;
+    margin: 0.2rem auto;
+
+  }
+
+
+  .wind-arrow {
+    width: 100%;
+    margin: 2rem auto 2rem;
+
+    img {
+      width: 35%;
+      max-width: 150px;
+    }
+  }
+
+  h1 {
+    margin: 0px auto;
+
+    .wind-speed {
+      color: $noSailColor;
+    }
+
+    &.windy .wind-speed {
+      color: $toSailColor;
+    }
+  }
+
+
+  h2 {
+    margin: 0px auto;
+  }
+
+  h3 {
+    
+    .wind-gust {
+      color: $noSailColor;
+    }
+
+    &.windy .wind-gust {
+      color: $toSailColor;
+    }
+  }
+
+  h6 {
+    font-weight: bolder;
+    color: $noSailColor;
+    font-size: 2rem;
+    margin: 0px auto;
+
+    &.Onshore {
+      color: $toSailColor;
+    }
+  }
+
+
+  > * {
+    width: 100%;
+    text-align: center;
+  }
+
+  .created-time {
+    position: absolute;
+    width: auto;
+    right: 10px;
+    padding: 3px 10px;
+    font-size: 0.85em;
+  }
+
+  .id-hidden {
+    display: none;
+  }
+
+
+  button {
+    background: none;
+    font-size: 1.5em;
+    line-height: 2.5em;
+    width: 100%;
+    padding: 0px;
+    outline: none;
+    font-family: 'Oswald', arial, sans-serif;
+    cursor: pointer;
+    font-weight: lighter;
+    text-transform: uppercase;
+
+    span {
+      height: 1px;
+      width: 80%;
+      display: block;
+      margin: 0px 10%;
+    }
+
+  }
+}

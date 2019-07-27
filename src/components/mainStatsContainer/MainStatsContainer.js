@@ -1,17 +1,21 @@
 import React from "react";
 import SocketsService from "../../services/socketsService"
 
-import './MainStatsContainer.scss';
-
 import LatestStats from '../latestStats/LatestStats';
 import MapView from '../mapView/MapView';
+import Slider from "react-slick";
+
+import './MainStatsContainer.scss';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 
 import spinner from '../..//assets/img/spinner.gif';
+import StatsSlide from "../statsSlide/StatsSlide";
 
 const ENDPOINT = "https://api.vientoenelrio.com/1";
 
 //const ENDPOINT = "http://localhost:3000/1";
-
 
 class MainStatsContainer extends React.Component {
 
@@ -48,19 +52,6 @@ class MainStatsContainer extends React.Component {
     }
 
 
-    getLatestStatsView = (stats) => {
-        return (
-            <LatestStats
-                key={stats.id}
-                id={stats.id}
-                speed={stats.speed}
-                gust={stats.gust}
-                direction={stats.direction}
-                className={'A-donde-va'}
-            />
-        );
-    }
-
     socketsCallback = (data) => {
         console.log(data);
         this.updateStats(data.stats);
@@ -93,12 +84,28 @@ class MainStatsContainer extends React.Component {
     }
 
     displayStats = () => {
+        var settings = {
+            speed: 500,
+            slidesToShow: 1,
+            slidesToScroll: 1
+        };
+
         return (
             <div className="main-container">
-                {this.getLatestStatsView(this.state.stats.latest)}
-                <div className='map-container'><MapView/></div>
-            </div>
 
+                <div className="stats-container">
+                    {this.getLatestStatsView(this.state.stats[2])}
+
+                    <section className="stats-slider">
+                        <Slider {...settings}>
+                            {this.state.stats.map(stats => this.getStatsSlide(stats))}
+                        </Slider>
+                    </section>
+                </div>
+
+                <div className='map-container'><MapView/></div>
+
+            </div>
         )
     }
 
@@ -108,6 +115,33 @@ class MainStatsContainer extends React.Component {
                 <h1>No información disponible</h1>
             </div>
         )
+    }
+
+    // Component Views
+    getLatestStatsView = (stats) => {
+        return (
+            <LatestStats
+                key={stats.id}
+                id={stats.id}
+                speed={stats.speed}
+                gust={stats.gust}
+                hour={stats.hour}
+                direction={stats.direction}
+            />
+        );
+    }
+
+    getStatsSlide = (stats) => {
+        return (
+            <StatsSlide
+                key={stats.id}
+                id={stats.id}
+                speed={stats.speed}
+                gust={stats.gust}
+                hour={stats.hour}
+                direction={stats.direction}
+            />
+        );
     }
 
 }

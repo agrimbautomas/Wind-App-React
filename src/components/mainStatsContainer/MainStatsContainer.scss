@@ -13,10 +13,16 @@
 
 .stats-container {
   width: 100%;
-  display: grid;
+  display: inline-block;
   align-items: center;
   height: 100vh;
 
   position: relative;
   z-index: 99;
+}
+
+.stats-slider{
+  position: relative;
+  height: 100px;
+  width: 100%;
 }

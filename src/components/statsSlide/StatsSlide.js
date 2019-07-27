@@ -1,9 +1,9 @@
 import React, {Component} from "react";
-import './LatestStats.scss';
+import './StatsSlide.scss';
 
 import windArrow from '../..//assets/img/wind-arrow.png';
 
-class LatestStats extends Component {
+class StatsSlide extends Component {
 
     constructor(props) {
         super(props);
@@ -11,10 +11,7 @@ class LatestStats extends Component {
         this.state = {
             direction: angle,
             speed: this.props.speed,
-            gust: this.props.gust,
             hour: this.props.hour,
-            messure: 'kts',
-            in_knots: true,
             is_windy: this.props.speed >= 12,
             style: {
                 transform: "rotate(" + (angle) + "deg)"
@@ -48,15 +45,6 @@ class LatestStats extends Component {
         })
     }
 
-    kmToKn = (kms) => {
-        return Number((kms / 1.852).toFixed(1))
-    }
-
-
-    knToKm = (knots) => {
-        return Number((knots * 1.852).toFixed(1))
-    }
-
     parseDirection = (direction) => {
         return Math.round(direction);
     }
@@ -75,38 +63,35 @@ class LatestStats extends Component {
     render() {
         return (
 
-            <div className="latest-stats-item" onClick={this.fadeImage}>
-                {/* Wind Direction */}
-                <h2>
-                    <span>{this.state.direction}°</span>
-                    {this.getDirection()}
-                </h2>
+            <div className="stats-container">
+                <div
+                    className="latest-stats-item" onClick={this.fadeImage}>
 
-                {/* Wind Condition */}
-                <h6 className={this.getCondition()}>{this.getCondition()} ({this.state.hour}hs)</h6>
+                    {/* Wind Direction */}
+                    <h2>
+                        <span>{this.state.direction}°</span>
+                        {this.getDirection()}
+                    </h2>
 
-                {/* Wind Arrow */}
-                <div className="wind-arrow" style={this.state.style}>
-                    <img src={windArrow}/>
+                    {/* Wind Condition */}
+                    <h6 className={this.getCondition()}>{this.getCondition()} ({this.state.hour}hs)</h6>
+
+                    {/* Wind Arrow */}
+                    <div className="wind-arrow" style={this.state.style}>
+                        <img src={windArrow}/>
+                    </div>
+
+                    {/* Wind Speed */}
+                    <h1 className={this.state.is_windy ? 'windy' : ''}>
+                        <span className="wind-speed">{this.state.speed} {this.state.messure}</span>
+                    </h1>
+
+                    <span className='id-hidden'>{this.props.id}</span>
+
                 </div>
-
-                {/* Wind Speed */}
-                <h1 className={this.state.is_windy ? 'windy' : ''}>
-                    <span>Viento</span>
-                    <span className="wind-speed">{this.state.speed} {this.state.messure}</span>
-                </h1>
-
-                {/* Wind Gust */}
-                <h3 className={this.state.is_windy ? 'windy' : ''}>
-                    <span>Ráfaga</span>
-                    <span className="wind-gust">{this.state.gust} {this.state.messure}</span>
-                </h3>
-
-                <span className='id-hidden'>{this.props.id}</span>
-
             </div>
         );
     }
 }
 
-export default LatestStats;
+export default StatsSlide;
