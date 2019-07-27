@@ -4,7 +4,7 @@ import './LatestStats.scss';
 import windArrow from '../../assets/img/main-wind-arrow.png';
 import noWindArrow from '../../assets/img/main-no-wind-arrow.png';
 
-import {GetRandomFloat} from '../../helpers/GetRandomFloat'
+import {RoundUnits} from '../../helpers/RoundUnits';
 
 class LatestStats extends Component {
 
@@ -13,9 +13,9 @@ class LatestStats extends Component {
         let angle = this.parseDirection(this.props.direction);
         this.state = {
             direction: angle,
-            onshore: angle >= 50 && angle < 160,
-            speed: this.props.speed,
-            gust: this.props.gust,
+            onshore: angle >= 0 && angle < 160,
+            speed: RoundUnits(this.props.speed),
+            gust: RoundUnits(this.props.gust),
             unit: 'kts',
             in_knots: true,
             is_windy: this.props.speed >= 12,
@@ -50,12 +50,12 @@ class LatestStats extends Component {
     }
 
     kmToKn = (kms) => {
-        return Number((kms / 1.852).toFixed(1))
+        return RoundUnits(kms / 1.852);
     }
 
 
     knToKm = (knots) => {
-        return Number((knots * 1.852).toFixed(1))
+        return RoundUnits(knots * 1.852)
     }
 
     parseDirection = (direction) => {
@@ -80,8 +80,7 @@ class LatestStats extends Component {
             <div className="latest-stats-item" onClick={this.switchUnits}>
                 {/* Wind Direction */}
                 <h2>
-                    <span>{this.state.direction}°</span>
-                    {this.getDirection()}
+                    <span>{this.state.direction}° {this.getDirection()}</span>
                 </h2>
 
                 {/* Wind Condition */}

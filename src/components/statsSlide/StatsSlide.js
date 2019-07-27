@@ -3,6 +3,7 @@ import './StatsSlide.scss';
 
 import windArrow from '../..//assets/img/main-wind-arrow.png';
 import noWindArrow from '../..//assets/img/main-no-wind-arrow.png';
+import {RoundUnits} from "../../helpers/RoundUnits";
 
 class StatsSlide extends Component {
 
@@ -11,8 +12,8 @@ class StatsSlide extends Component {
         let angle = this.parseDirection(this.props.direction);
         this.state = {
             direction: angle,
-            onshore: angle >= 0 && angle < 160 ,
-            speed: this.props.speed,
+            onshore: angle >= 0 && angle < 160,
+            speed: RoundUnits(this.props.speed),
             hour: this.props.hour,
             is_windy: this.props.speed >= 12,
             style: {
@@ -34,8 +35,9 @@ class StatsSlide extends Component {
                 <h5>{this.state.hour}hs</h5>
 
                 {/* Wind Arrow */}
-                <div className="wind-arrow" >
-                    <img style={this.state.style} src={this.state.onshore ? windArrow : noWindArrow } alt='viento-en-el-rio-fleacha' />
+                <div className="wind-arrow">
+                    <img style={this.state.style} src={this.state.onshore ? windArrow : noWindArrow}
+                         alt='viento-en-el-rio-fleacha'/>
                 </div>
 
                 {/* Wind Speed */}
