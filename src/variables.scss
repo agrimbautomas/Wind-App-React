@@ -1,0 +1,30 @@
+@import "fonts";
+
+// Variables
+
+$fast_transition: all 0.2s ease-in-out;
+$smooth_transition: all 0.3s ease-in-out;
+$slow_transition: all .4s ease-in-out;
+
+/* Font Variations */
+$primary-font: 'Product Sans', Helvetica, Arial, sans-serif;
+$regular: 400;
+$light: 300;
+$bold: 700;
+$semibold: 600;
+$text-color: #212529;
+
+/* Colors */
+$black: #212529;
+
+$light-blue: #d5edff;
+$light-blue2: #a5d4fe;
+$blue: #6daaee;
+$strong-blue: #3858f9;
+$strongest-blue: #183c99;
+$white: #f9fcff;
+
+$north_green: #479c94;
+
+$toSailColor: #75fc4c;
+$noSailColor: #bd1f4b;

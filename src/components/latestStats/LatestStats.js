@@ -23,7 +23,7 @@ class LatestStats extends Component {
         };
     }
 
-    fadeImage = () => {
+    switchUnits = () => {
         if (this.state.in_knots)
             this.switchToKms();
         else
@@ -75,7 +75,7 @@ class LatestStats extends Component {
     render() {
         return (
 
-            <div className="latest-stats-item" onClick={this.fadeImage}>
+            <div className="latest-stats-item" onClick={this.switchUnits}>
                 {/* Wind Direction */}
                 <h2>
                     <span>{this.state.direction}°</span>

@@ -86,7 +86,7 @@ class MainStatsContainer extends React.Component {
     displayStats = () => {
         var settings = {
             speed: 500,
-            slidesToShow: 1,
+            slidesToShow: 5,
             slidesToScroll: 1
         };
 

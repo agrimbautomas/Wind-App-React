@@ -1,7 +1,6 @@
-$toSailColor: #75fc4c;
-$noSailColor: #bd1f4b;
+@import "../../variables";
 
-.latest-stats-item {
+.stats-slide {
   cursor: pointer;
   text-align: center;
   padding: 0rem 0px;
@@ -39,21 +38,6 @@ $noSailColor: #bd1f4b;
     }
   }
 
-
-  h2 {
-    margin: 0px auto;
-  }
-
-  h3 {
-    
-    .wind-gust {
-      color: $noSailColor;
-    }
-
-    &.windy .wind-gust {
-      color: $toSailColor;
-    }
-  }
 
   h6 {
     font-weight: bolder;
