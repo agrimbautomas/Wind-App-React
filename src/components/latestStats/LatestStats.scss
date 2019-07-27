@@ -19,7 +19,7 @@
 
   .wind-arrow {
     width: 100%;
-    margin: 2rem auto 2rem;
+    margin: 1rem auto;
     max-width: 400px;
 
     img {
@@ -47,6 +47,7 @@
 
   h2 {
     margin: 0px auto;
+    font-size: 1.1rem;
   }
 
   h3 {
@@ -66,6 +67,7 @@
     color: $noSailColor;
     font-size: 2rem;
     margin: 0px auto;
+    margin: 0.5rem auto 0em;
 
     &.Onshore {
       color: $toSailColor;

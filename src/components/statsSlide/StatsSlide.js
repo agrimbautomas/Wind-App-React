@@ -1,15 +1,17 @@
 import React, {Component} from "react";
 import './StatsSlide.scss';
 
-import windArrow from '../..//assets/img/small-wind-arrow.png';
+import windArrow from '../..//assets/img/main-wind-arrow.png';
+import noWindArrow from '../..//assets/img/main-no-wind-arrow.png';
 
 class StatsSlide extends Component {
 
     constructor(props) {
         super(props);
-        var angle = this.parseDirection(this.props.direction);
+        let angle = this.parseDirection(this.props.direction);
         this.state = {
             direction: angle,
+            onshore: angle >= 0 && angle < 160 ,
             speed: this.props.speed,
             hour: this.props.hour,
             is_windy: this.props.speed >= 12,
@@ -23,11 +25,6 @@ class StatsSlide extends Component {
         return Math.round(direction);
     }
 
-    getCondition = () => {
-        var angle = this.state.direction;
-        return (angle > 0 && angle < 160) ? "Onshore" : "Offshore"
-    }
-
     render() {
         return (
             <div
@@ -35,11 +32,10 @@ class StatsSlide extends Component {
 
                 {/* Wind Condition */}
                 <h5>{this.state.hour}hs</h5>
-                <h6 className={this.getCondition()}>{this.getCondition()}</h6>
 
                 {/* Wind Arrow */}
                 <div className="wind-arrow" >
-                    <img style={this.state.style} src={windArrow}/>
+                    <img style={this.state.style} src={this.state.onshore ? windArrow : noWindArrow } alt='viento-en-el-rio-fleacha' />
                 </div>
 
                 {/* Wind Speed */}

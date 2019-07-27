@@ -16,13 +16,13 @@ class MapView extends Component {
         return (
             <Map className="map-container"
                  google={this.props.google}
-                 zoom={13}
+                 zoom={12}
                  styles={styles}
                  disableDefaultUI={true}
 
                  initialCenter={{
-                     lat: -34.46000,
-                     lng: -58.50458
+                     lat: -34.49500,
+                     lng: -58.47500
                  }}
             />
         );

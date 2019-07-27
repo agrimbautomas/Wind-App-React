@@ -1,27 +1,26 @@
 import React, {Component} from "react";
 import './LatestStats.scss';
 
-import windArrow from '../..//assets/img/main-wind-arrow.png';
+import windArrow from '../../assets/img/main-wind-arrow.png';
+import noWindArrow from '../../assets/img/main-no-wind-arrow.png';
+
+import {GetRandomFloat} from '../../helpers/GetRandomFloat'
 
 class LatestStats extends Component {
 
     constructor(props) {
         super(props);
-        var angle = this.parseDirection(this.props.direction);
+        let angle = this.parseDirection(this.props.direction);
         this.state = {
             direction: angle,
+            onshore: angle >= 50 && angle < 160,
             speed: this.props.speed,
             gust: this.props.gust,
-            hour: this.props.hour,
             unit: 'kts',
             in_knots: true,
             is_windy: this.props.speed >= 12,
-            style: {
-                transform: "rotate(" + (angle) + "deg)"
-            }
-
+            style: {transform: "rotate(" + (angle) + "deg)"}
         };
-
 
     }
 
@@ -64,26 +63,16 @@ class LatestStats extends Component {
     }
 
     getDirection = () => {
-        var angle = this.state.direction;
-        var directions = ['Norte', 'Noreste', 'Este', 'Sudeste', 'Sur', 'Sudoeste', 'Oeste', 'Noroeste'];
+        let angle = this.state.direction;
+        let directions = ['Norte', 'Noreste', 'Este', 'Sudeste', 'Sur', 'Sudoeste', 'Oeste', 'Noroeste'];
         return directions[Math.round(((angle %= 360) < 0 ? angle + 360 : angle) / 45) % 8];
     }
 
     getCondition = () => {
-        var angle = this.state.direction;
+        let angle = this.state.direction;
         return (angle > 0 && angle < 160) ? "Onshore" : "Offshore"
     }
 
-    componentDidMount() {
-        this.interval = setInterval(
-            () => this.setState({
-                time: Date.now()
-            }), 1000);
-    }
-
-    componentWillUnmount() {
-        clearInterval(this.interval);
-    }
 
     render() {
         return (
@@ -100,12 +89,12 @@ class LatestStats extends Component {
 
                 {/* Wind Arrow */}
                 <div className="wind-arrow">
-                    <img style={this.state.style} src={windArrow}/>
+                    <img style={this.state.style} src={this.state.onshore ? windArrow : noWindArrow}
+                         alt='viento-en-el-rio-fleacha'/>
                 </div>
 
                 {/* Wind Speed */}
                 <h1 className={this.state.is_windy ? 'windy' : ''}>
-                    <span className="wind-speed-label">Viento</span>
                     <span className="wind-speed">{this.state.speed} {this.state.unit}</span>
                 </h1>
 

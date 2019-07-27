@@ -10,7 +10,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 
-import spinner from '../..//assets/img/spinner.gif';
+import spinner from '../../assets/img/spinner.gif';
 import StatsSlide from "../statsSlide/StatsSlide";
 
 const ENDPOINT = "https://api.vientoenelrio.com/1";
@@ -53,7 +53,6 @@ class MainStatsContainer extends React.Component {
 
 
     socketsCallback = (data) => {
-        console.log(data);
         this.updateStats(data.stats);
     }
 
@@ -69,7 +68,7 @@ class MainStatsContainer extends React.Component {
         if (error) {
             return <div>Error: {error.message}</div>;
         } else if (!isLoaded) {
-            return <div className="spinner-container"><img src={spinner}/></div>;
+            return <div className="spinner-container"><img src={spinner} alt="vient-en-el-rio-spinner" /></div>;
         } else {
             return this.renderLatestStatsView()
         }
@@ -84,7 +83,7 @@ class MainStatsContainer extends React.Component {
     }
 
     displayStats = () => {
-        var settings = {
+        let settings = {
             speed: 500,
             slidesToShow: 5,
             slidesToScroll: 1
