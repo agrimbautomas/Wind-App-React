@@ -27,7 +27,7 @@
 
     img {
       width: 55%;
-      max-width: 150px;
+      max-width: 100px;
       display: inline-block;
     }
   }
@@ -62,6 +62,7 @@
     color: $noSailColor;
     font-size: 0.8rem;
     margin: 0px auto;
+    text-transform: lowercase;
 
     &.Onshore {
       color: $toSailColor;

@@ -13,7 +13,7 @@ class LatestStats extends Component {
             speed: this.props.speed,
             gust: this.props.gust,
             hour: this.props.hour,
-            messure: 'kts',
+            unit: 'kts',
             in_knots: true,
             is_windy: this.props.speed >= 12,
             style: {
@@ -21,6 +21,8 @@ class LatestStats extends Component {
             }
 
         };
+
+
     }
 
     switchUnits = () => {
@@ -34,7 +36,7 @@ class LatestStats extends Component {
         this.setState({
             speed: this.knToKm(this.state.speed),
             gust: this.knToKm(this.state.gust),
-            messure: 'km/h',
+            unit: 'km/h',
             in_knots: false,
         })
     }
@@ -43,7 +45,7 @@ class LatestStats extends Component {
         this.setState({
             speed: this.kmToKn(this.state.speed),
             gust: this.kmToKn(this.state.gust),
-            messure: 'kts',
+            unit: 'kts',
             in_knots: true
         })
     }
@@ -72,6 +74,17 @@ class LatestStats extends Component {
         return (angle > 0 && angle < 160) ? "Onshore" : "Offshore"
     }
 
+    componentDidMount() {
+        this.interval = setInterval(
+            () => this.setState({
+                time: Date.now()
+            }), 1000);
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.interval);
+    }
+
     render() {
         return (
 
@@ -86,20 +99,20 @@ class LatestStats extends Component {
                 <h6 className={this.getCondition()}>{this.getCondition()}</h6>
 
                 {/* Wind Arrow */}
-                <div className="wind-arrow" >
+                <div className="wind-arrow">
                     <img style={this.state.style} src={windArrow}/>
                 </div>
 
                 {/* Wind Speed */}
                 <h1 className={this.state.is_windy ? 'windy' : ''}>
                     <span className="wind-speed-label">Viento</span>
-                    <span className="wind-speed">{this.state.speed} {this.state.messure}</span>
+                    <span className="wind-speed">{this.state.speed} {this.state.unit}</span>
                 </h1>
 
                 {/* Wind Gust */}
                 <h3 className={this.state.is_windy ? 'windy' : ''}>
                     <span>Ráfaga</span>
-                    <span className="wind-gust">{this.state.gust} {this.state.messure}</span>
+                    <span className="wind-gust">{this.state.gust} {this.state.unit}</span>
                 </h3>
 
                 <span className='id-hidden'>{this.props.id}</span>

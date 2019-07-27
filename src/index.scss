@@ -1,35 +1,6 @@
 @import "fonts";
 @import "variables";
 
-// Variables
-
-$fast_transition: all 0.2s ease-in-out;
-$smooth_transition: all 0.3s ease-in-out;
-$slow_transition: all .4s ease-in-out;
-
-/* Font Variations */
-$primary-font: 'Product Sans', Helvetica, Arial, sans-serif;
-$regular: 400;
-$light: 300;
-$bold: 700;
-$semibold: 600;
-$text-color: #212529;
-
-/* Colors */
-$black: #212529;
-
-$light-blue: #d5edff;
-$light-blue2: #a5d4fe;
-$blue: #6daaee;
-$strong-blue: #3858f9;
-$strongest-blue: #183c99;
-$white: #f9fcff;
-
-$north_green: #479c94;
-
-$toSailColor: #75fc4c;
-$noSailColor: #bd1f4b;
-
 
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;

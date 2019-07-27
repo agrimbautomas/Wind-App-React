@@ -16,14 +16,28 @@
   display: inline-block;
   align-items: center;
   height: 100vh;
-
+  text-align: center;
   position: relative;
   z-index: 99;
 }
 
-.stats-slider{
+.stats-slider-container {
   height: auto;
   width: 100%;
   position: absolute;
   bottom: 4%;
+  margin: auto;
+  text-align: center;
+
+  .stats-slider {
+    width: 100%;
+    max-width: 500px;
+    display: inline-block;
+  }
+
+}
+
+@media (min-width: 600px) {
+
+
 }
