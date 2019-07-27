@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import './StatsSlide.scss';
 
-import windArrow from '../..//assets/img/wind-arrow.png';
+import windArrow from '../..//assets/img/small-wind-arrow.png';
 
 class StatsSlide extends Component {
 
@@ -30,28 +30,24 @@ class StatsSlide extends Component {
 
     render() {
         return (
+            <div
+                className="stats-slide">
 
-            <div className="stats-container">
-                <div
-                    className="stats-slide">
+                {/* Wind Condition */}
+                <h5>{this.state.hour}hs</h5>
+                <h6 className={this.getCondition()}>{this.getCondition()}</h6>
 
-
-                    {/* Wind Condition */}
-                    <h6 className={this.getCondition()}>{this.getCondition()} ({this.state.hour}hs)</h6>
-
-                    {/* Wind Arrow */}
-                    <div className="wind-arrow" style={this.state.style}>
-                        <img src={windArrow}/>
-                    </div>
-
-                    {/* Wind Speed */}
-                    <h1 className={this.state.is_windy ? 'windy' : ''}>
-                        <span className="wind-speed">{this.state.speed} kts</span>
-                    </h1>
-
-                    <span className='id-hidden'>{this.props.id}</span>
-
+                {/* Wind Arrow */}
+                <div className="wind-arrow" >
+                    <img style={this.state.style} src={windArrow}/>
                 </div>
+
+                {/* Wind Speed */}
+                <h1 className={this.state.is_windy ? 'windy' : ''}>
+                    <span className="wind-speed">{this.state.speed}</span>
+                    <span className="units">kts</span>
+                </h1>
+
             </div>
         );
     }

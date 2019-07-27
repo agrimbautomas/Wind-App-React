@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import './LatestStats.scss';
 
-import windArrow from '../..//assets/img/wind-arrow.png';
+import windArrow from '../..//assets/img/main-wind-arrow.png';
 
 class LatestStats extends Component {
 
@@ -83,16 +83,16 @@ class LatestStats extends Component {
                 </h2>
 
                 {/* Wind Condition */}
-                <h6 className={this.getCondition()}>{this.getCondition()} ({this.state.hour}hs)</h6>
+                <h6 className={this.getCondition()}>{this.getCondition()}</h6>
 
                 {/* Wind Arrow */}
-                <div className="wind-arrow" style={this.state.style}>
-                    <img src={windArrow}/>
+                <div className="wind-arrow" >
+                    <img style={this.state.style} src={windArrow}/>
                 </div>
 
                 {/* Wind Speed */}
                 <h1 className={this.state.is_windy ? 'windy' : ''}>
-                    <span>Viento</span>
+                    <span className="wind-speed-label">Viento</span>
                     <span className="wind-speed">{this.state.speed} {this.state.messure}</span>
                 </h1>
 

@@ -7,6 +7,11 @@
   width: 90%;
   margin: auto;
 
+  > * {
+    width: 100%;
+    text-align: center;
+  }
+
   span {
     display: block;
     text-align: center;
@@ -15,34 +20,47 @@
 
   }
 
-
   .wind-arrow {
     width: 100%;
-    margin: 2rem auto 2rem;
+    margin: 0.5rem auto 0rem;
+    text-align: center;
 
     img {
-      width: 35%;
+      width: 55%;
       max-width: 150px;
+      display: inline-block;
     }
   }
 
   h1 {
     margin: 0px auto;
+    font-size: 2rem;
+    color: $noSailColor;
 
-    .wind-speed {
-      color: $noSailColor;
+    &.windy {
+      color: $toSailColor;
     }
 
-    &.windy .wind-speed {
-      color: $toSailColor;
+    span {
+      color: inherit;
+    }
+
+    .units {
+      font-size: 0.4em;
     }
   }
 
 
+  h5 {
+    font-weight: bolder;
+    font-size: 1rem;
+    margin: 0px auto;
+  }
+
   h6 {
     font-weight: bolder;
     color: $noSailColor;
-    font-size: 2rem;
+    font-size: 0.8rem;
     margin: 0px auto;
 
     &.Onshore {
@@ -51,42 +69,4 @@
   }
 
 
-  > * {
-    width: 100%;
-    text-align: center;
-  }
-
-  .created-time {
-    position: absolute;
-    width: auto;
-    right: 10px;
-    padding: 3px 10px;
-    font-size: 0.85em;
-  }
-
-  .id-hidden {
-    display: none;
-  }
-
-
-  button {
-    background: none;
-    font-size: 1.5em;
-    line-height: 2.5em;
-    width: 100%;
-    padding: 0px;
-    outline: none;
-    font-family: 'Oswald', arial, sans-serif;
-    cursor: pointer;
-    font-weight: lighter;
-    text-transform: uppercase;
-
-    span {
-      height: 1px;
-      width: 80%;
-      display: block;
-      margin: 0px 10%;
-    }
-
-  }
 }
