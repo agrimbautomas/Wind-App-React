@@ -93,12 +93,12 @@ class MainStatsContainer extends React.Component {
             <div className="main-container">
 
                 <div className="stats-container">
-                    {this.getLatestStatsView(this.state.stats[2])}
+                    {this.getLatestStatsView(this.state.stats.current)}
 
                     <section className="stats-slider-container ">
                         <div className="stats-slider">
                             <Slider {...settings}>
-                                {this.state.stats.map(stats => this.getStatsSlide(stats))}
+                                {this.state.stats.logs.map(stats => this.getStatsSlide(stats))}
                             </Slider>
                         </div>
                     </section>
