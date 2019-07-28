@@ -84,9 +84,10 @@ class MainStatsContainer extends React.Component {
 
     displayStats = () => {
         let settings = {
-            speed: 500,
             slidesToShow: 5,
+            infinite: false,
             slidesToScroll: 1
+
         };
 
         return (
