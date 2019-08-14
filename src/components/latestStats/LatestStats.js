@@ -18,7 +18,7 @@ class LatestStats extends Component {
             gust: RoundUnits(this.props.gust),
             unit: 'kts',
             in_knots: true,
-            is_windy: this.props.speed >= 12,
+            is_windy: this.props.speed >= 11.5,
             style: {transform: "rotate(" + (angle) + "deg)"}
         };
 
@@ -93,7 +93,7 @@ class LatestStats extends Component {
                 </div>
 
                 {/* Wind Speed */}
-                <h1 className={this.state.is_windy ? 'windy' : ''}>
+                <h1 className={this.state.is_windy ? 'windy' : ''} some={this.props.speed}>
                     <span className="wind-speed">{this.state.speed} {this.state.unit}</span>
                 </h1>
 
