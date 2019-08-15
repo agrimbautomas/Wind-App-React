@@ -34,6 +34,6 @@ deploy_production:
   script:
     - yarn install
     - ./deploy_to_production.sh
-  #when: manual
-  #only:
-  #  - master
+  when: manual
+  only:
+    - master
