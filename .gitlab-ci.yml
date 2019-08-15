@@ -4,7 +4,7 @@ stages:
   - build
   - deploy
 
-yarn:
+build:
   stage: build
   cache:
     untracked: true
@@ -15,7 +15,6 @@ yarn:
   artifacts:
     paths:
       - reports/
-
 
 deploy_production:
   stage: deploy
@@ -31,9 +30,9 @@ deploy_production:
     - docker
   environment:
     name: production
-    url: http://verybusy.io
+    url: https://vientoenelrio.com
   script:
-    - yarn install
+    - npm install
     - ./deploy_to_production.sh
 #  when: manual
   only:
