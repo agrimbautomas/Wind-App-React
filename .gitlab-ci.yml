@@ -36,7 +36,5 @@ deploy_production:
     - yarn install
     - ./deploy_to_production.sh
   when: manual
-  dependencies:
-    - run_tests
   only:
     - master
