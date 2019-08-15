@@ -1,0 +1,88 @@
+image: node:10.6
+
+stages:
+  - build
+  - deploy
+
+yarn:
+  stage: build
+  cache:
+    untracked: true
+  script:
+    - npm install
+  tags:
+    - docker
+  artifacts:
+    paths:
+      - reports/
+
+
+deploy_development:
+  stage: deploy
+  before_script:
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+  tags:
+    - docker
+  environment:
+    name: development
+    url: http://hunny-app-dev.amalgama.co
+  script:
+    - yarn install
+    - ./deploy_to_development.sh
+  dependencies:
+    - run_tests
+  only:
+    - develop
+
+deploy_staging:
+  stage: deploy
+  before_script:
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+  tags:
+    - docker
+  environment:
+    name: staging
+    url: http://hunny-app-stg.amalgama.co
+  script:
+    - yarn install
+    - ./deploy_to_staging.sh
+  dependencies:
+    - run_tests
+  only:
+    - staging
+
+deploy_production:
+  stage: deploy
+  before_script:
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+  tags:
+    - docker
+  environment:
+    name: production
+    url: http://verybusy.io
+  script:
+    - yarn install
+    - ./deploy_to_production.sh
+  when: manual
+  dependencies:
+    - run_tests
+  only:
+    - master
