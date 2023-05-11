@@ -1,3 +1,6 @@
+# Wind-App-React
+Wind-App-React is a dynamic web application, built with React.js, providing real-time wind data for global locations. It showcases efficient use of APIs, responsive UI design, and state management. Feedback and contributions are welcome!
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
